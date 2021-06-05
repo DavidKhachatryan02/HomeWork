@@ -1,0 +1,47 @@
+EX 1
+
+function z(str){  
+  str = str.replace(" ","")
+  if (str.indexOf("+")==!str.lastIndexOf("+")){
+      return "bad number" 
+  }
+  if(str.length===10 && str.indexOf("+")===-1 ){
+    return str
+  } 
+  if(str.length===11 && str[0]==="+" ){
+    return str.slice(1,11)
+  }
+ return "bad number"
+}
+
+EX 2
+
+function spell(num){
+ let sum = 0  
+  let singles = ['zero','one','two','three','four','five','six','seven','eight','nine']
+  let tens = ['','ten','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety']
+  let numbers = []
+  while (num){
+   let lastdigit = num%10
+   num = (num-lastdigit)/10
+   numbers.push(lastdigit)
+   }
+   if (numbers.length===1){
+      return `${singles[numbers[0]]}`
+   }
+  if (numbers.length===2){
+      return `${tens[numbers[1]]} ${singles[numbers[0]]}`
+  }
+ if (numbers.length===3){
+       return `${singles[numbers[2]]} hundred ${tens[numbers[1]]} ${singles[numbers[0]]}`
+    }
+ if (numbers.length===4){
+       return `${singles[numbers[3]]} thousand ${singles[numbers[2]]} hundred ${tens[numbers[1]]} ${singles[numbers[0]]}`
+    }
+  if (numbers.length===5){
+       return `${tens[numbers[4]]}  ${singles[numbers[3]]} thousand ${singles[numbers[2]]} hundred ${tens[numbers[1]]} ${singles[numbers[0]]}`
+    }
+ if (numbers.length===6){
+       return `${singles[numbers[5]]} hundred ${tens[numbers[4]]} ${singles[numbers[3]]} thousand ${singles[numbers[2]]} hundred ${tens[numbers[1]]} ${singles[numbers[0]]}`
+}
+}
